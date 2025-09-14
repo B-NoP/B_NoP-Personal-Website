@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Direct Upload Demo | Cloudflare Pages</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+
+  <body>
+    <!-- 全屏背景容器 -->
+    <div class="full-background"></div>
+
+    <!-- 左侧模糊遮罩 -->
+    <div class="blurred-overlay"></div>
+    <!-- 中间过渡模糊遮罩 -->
+    <div class="middle-blurred-overlay"></div>
+
+    <!-- 内容容器 -->
+    <div class="container">
+        <!-- 左侧区域 -->
+        <div class="left-side">
+            <div class="header">
+                <h3>B_NoP的个人主页</h3>
+                <h1>欢迎访问我的网站</h1>
+                <p>
+                    我的梦想<br>
+                    <em>请让我躺在萝莉窝，谢谢！！！</em><br>
+
+                </p>
+                <p>查看我的账号</p>
+
+                <section class="options">
+                    <a href="https://github.com/B-NoP" target="_blank" class="option-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="Terminal Icon">
+                        Github
+                    </a>
+                    <a href="https://space.bilibili.com/1114493285" target="_blank" class="option-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/bilibili.svg" alt="Cloud Upload Icon">
+                        Bilibili
+                    </a>
+                </section>
+            </div>
+        </div>
+
+        <!-- 右侧区域 -->
+        <div class="right-side">
+
+
+
+        </div>
+    </div>
+
+    <script>
+        // 简化的视差效果代码
+        window.addEventListener('scroll', function() {
+            const fullBackground = document.querySelector('.full-background');
+
+            if (fullBackground) {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.2;
+                fullBackground.style.transform = 'translateY(' + rate + 'px)';
+            }
+        });
+    </script>
+  </body>
+
+
+
+</html>
