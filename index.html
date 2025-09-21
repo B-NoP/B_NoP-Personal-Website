@@ -9,18 +9,20 @@
 
 
   <body>
+  <!-- page1 -->
+  <section class="page-sec" id="page1">
     <!-- 全屏背景容器 -->
-    <div class="full-background"></div>
+    <div class="full-background" style="background-image: url('assets/bg1.jpg');"></div>
 
     <!-- 左侧模糊遮罩 -->
     <div class="blurred-overlay"></div>
     <!-- 中间过渡模糊遮罩 -->
-    <div class="middle-blurred-overlay"></div>
+    <div class="middle-blurred-overlay" style="left: 35%;"></div>
 
     <!-- 内容容器 -->
     <div class="container">
         <!-- 左侧区域 -->
-        <div class="left-side">
+        <div class="blurred-side" style="left: 0;">
             <div class="header">
                 <h3>B_NoP的个人主页</h3>
                 <h1>欢迎访问我的网站</h1>
@@ -45,25 +47,47 @@
         </div>
 
         <!-- 右侧区域 -->
-        <div class="right-side">
+       <div class="empty-side" style="right: 0;">
 
 
 
         </div>
     </div>
+    </section>
+  <!-- page2 -->
+    <section class="page-sec" id="page2">
 
-    <script>
-        // 简化的视差效果代码
-        window.addEventListener('scroll', function() {
-            const fullBackground = document.querySelector('.full-background');
+        <div class="full-background" style="background-image: url('assets/bg2.jpg');"></div>
+        <div class="blurred-overlay" style="right: 0;"></div>
+        <div class="middle-blurred-overlay" style="right: 35%;"></div>
+        <div class="container" style="right: 0;">
+            <div class="empty-side" style="left: 0;"></div>
+            <div class="blurred-side" style="right: 0;">
+                <div class="music-box"  style="top: 5%; bottom: 5%;">
+                    <h1>鳥の诗</h1>
+                    <br>
+                    <img src="assets/cover.jpg" alt="Music Cover" width="400px" height="auto" style="border-radius: 10px;">
+                    <section class="options">
+                        <audio src="assets/tori.mp3" controls></audio>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            if (fullBackground) {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.2;
-                fullBackground.style.transform = 'translateY(' + rate + 'px)';
-            }
-        });
-    </script>
+    <!-- page3 -->
+    <section class="page-sec" id="page3">
+        <div class="full-background" style="background-image: url('assets/bg3.jpg');"></div>
+        <div class="blurred-overlay" style="right: 0;"></div>
+        <div class="middle-blurred-overlay" style="right: 35%;"></div>
+        <div class="container" style="right: 0;">
+            <div class="empty-side" style="left: 0;"></div>
+            <div class="blurred-side" style="right: 0;">
+                <h1>施工中...</h1>
+            </div>
+        </div>
+    </section>
+
   </body>
 
 
