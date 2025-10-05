@@ -1,95 +1,137 @@
-<html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>B_NoP个人网站</title>
-    <link href="style.css" rel="stylesheet" />
-  </head>
-
-
-  <body>
-  <!-- page1 -->
-  <section class="page-sec" id="page1">
-    <!-- 全屏背景容器 -->
-    <div class="full-background" style="background-image: url('assets/bg1.jpg');"></div>
-
-    <!-- 左侧模糊遮罩 -->
-    <div class="blurred-overlay"></div>
-    <!-- 中间过渡模糊遮罩 -->
-    <div class="middle-blurred-overlay" style="left: 35%;"></div>
-
-    <!-- 内容容器 -->
-    <div class="container">
-        <!-- 左侧区域 -->
-        <div class="blurred-side" style="left: 0;">
-            <div class="header">
-                <h3>B_NoP的个人主页</h3>
-                <h1>欢迎访问我的网站</h1>
-                <p>
-                    我的梦想<br>
-                    <em>请让我躺在萝莉窝，谢谢！！！</em><br>
-
-                </p>
-                <p>查看我的账号</p>
-
-                <section class="options">
-                    <a href="https://github.com/B-NoP" target="_blank" class="option-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="Terminal Icon">
-                        Github
-                    </a>
-                    <a href="https://space.bilibili.com/1114493285" target="_blank" class="option-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/bilibili.svg" alt="Cloud Upload Icon">
-                        Bilibili
-                    </a>
-                </section>
-            </div>
+    <title>B_NoP 的个人主页</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>B_NoP</h1>
+            <p class="subtitle">永远爱Loli</p>
+            <a href="/assets/bg1.jpg" class="btn" target="_blank">看看萝莉?</a>
         </div>
+    </header>
 
-        <!-- 右侧区域 -->
-       <div class="empty-side" style="right: 0;">
+    <section id="about" class="about">
+        <h2>关于我</h2>
+        <p>Hi! 我是 B_NoP</p>
+    </section>
 
+    <section class="links">
+        <h2>我的链接</h2>
+        <div class="social">
+            <a href="https://github.com/b-nop" target="_blank">GitHub</a>
+            <a href="https://space.bilibili.com/1114493285" target="_blank">Bilibili</a>
+        </div>
+    </section>
 
+    <section class="fun">
+        <h2>梦想</h2>
+        <p>请让我躺在萝莉窝，谢谢！！！</p>
+    </section>
+
+    <section class="music">
+
+    <h2>听首歌,放松一下</h2>
+    <div class="music-player">
+        <div class="album-cover">
+            <img src="assets/cover.jpg" alt="专辑封面">
+        </div>
+        <div class="player-controls">
+            <div class="song-info">
+                <h3>鳥の詩</h3>
+                <p>Lia</p>
+            </div>
+            <audio id="audio-player" src="assets/tori.mp3"></audio>
+            <div class="controls">
+                <button id="play-btn" class="control-btn">▶</button>
+                <button id="pause-btn" class="control-btn">⏸</button>
+                <button id="stop-btn" class="control-btn">⏹</button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="time-display">
+                    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                </div>
+            </div>
 
         </div>
     </div>
-    </section>
-  <!-- page2 -->
-    <section class="page-sec" id="page2">
-
-        <div class="full-background" style="background-image: url('assets/bg2.jpg');"></div>
-        <div class="blurred-overlay" style="right: 0;"></div>
-        <div class="middle-blurred-overlay" style="right: 35%;"></div>
-        <div class="container" style="right: 0;">
-            <div class="empty-side" style="left: 0;"></div>
-            <div class="blurred-side" style="right: 0;">
-                <div class="music-box"  style="top: 5%; bottom: 5%;">
-                    <h1>鳥の诗</h1>
-                    <br>
-                    <img src="assets/cover.jpg" alt="Music Cover" width="400px" height="auto" style="border-radius: 10px;">
-                    <section class="options">
-                        <audio src="assets/tori.mp3" controls></audio>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- page3 -->
-    <section class="page-sec" id="page3">
-        <div class="full-background" style="background-image: url('assets/bg3.jpg');"></div>
-        <div class="blurred-overlay" style="right: 0;"></div>
-        <div class="middle-blurred-overlay" style="right: 35%;"></div>
-        <div class="container" style="right: 0;">
-            <div class="empty-side" style="left: 0;"></div>
-            <div class="blurred-side" style="right: 0;">
-                <h1>施工中...</h1>
-            </div>
-        </div>
-    </section>
-
-  </body>
+</section>
 
 
+    <footer>
+        <p><span class="emoji emojia9"></span> 2025 B_NoP | 页面仍在施工中 <span class="emoji emoji26d4"></span></p>
+    </footer>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('audio-player');
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+    const stopBtn = document.getElementById('stop-btn');
+    const progressBar = document.querySelector('.progress');
+    const progressContainer = document.querySelector('.progress-bar');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+
+    // 播放功能
+    playBtn.addEventListener('click', function() {
+        audio.play();
+    });
+
+    // 暂停功能
+    pauseBtn.addEventListener('click', function() {
+        audio.pause();
+    });
+
+    // 停止功能
+    stopBtn.addEventListener('click', function() {
+        audio.pause();
+        audio.currentTime = 0;
+        progressBar.style.width = '0%';
+        updateTimeDisplay();
+    });
+
+    // 进度条点击跳转
+    progressContainer.addEventListener('click', function(e) {
+        const rect = progressContainer.getBoundingClientRect();
+        const percent = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = percent * audio.duration;
+    });
+
+    // 更新进度条
+    audio.addEventListener('timeupdate', function() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + '%';
+        updateTimeDisplay();
+    });
+
+    // 音频加载完成后更新总时长
+    audio.addEventListener('loadedmetadata', function() {
+        updateTimeDisplay();
+    });
+
+    // 更新时间显示
+    function updateTimeDisplay() {
+        const currentMinutes = Math.floor(audio.currentTime / 60);
+        const currentSeconds = Math.floor(audio.currentTime % 60);
+        const durationMinutes = Math.floor(audio.duration / 60);
+        const durationSeconds = Math.floor(audio.duration % 60);
+
+        currentTimeEl.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
+        durationEl.textContent = `${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+    }
+});
+</script>
 
 </html>
