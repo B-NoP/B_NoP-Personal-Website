@@ -15,7 +15,7 @@
         <div class="content">
             <h1>B_NoP</h1>
             <p class="subtitle">永远爱Loli</p>
-            <a href="/assets/bg1.jpg" class="btn" target="_blank">看看萝莉?</a>
+            <a href="#" id="pixiv-link" class="btn" target="_blank">看看萝莉?</a>
         </div>
     </header>
 
@@ -38,42 +38,41 @@
     </section>
 
     <section class="music">
-
-    <h2>听首歌,放松一下</h2>
-    <div class="music-player">
-        <div class="album-cover">
-            <img src="assets/cover.jpg" alt="专辑封面">
-        </div>
-        <div class="player-controls">
-            <div class="song-info">
-                <h3>鳥の詩</h3>
-                <p>Lia</p>
+        <h2>听首歌,放松一下</h2>
+        <div class="music-player">
+            <div class="album-cover">
+                <img src="assets/cover.jpg" alt="专辑封面">
             </div>
-            <audio id="audio-player" src="assets/tori.mp3"></audio>
-            <div class="controls">
-                <button id="play-btn" class="control-btn">▶</button>
-                <button id="pause-btn" class="control-btn">⏸</button>
-                <button id="stop-btn" class="control-btn">⏹</button>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress"></div>
+            <div class="player-controls">
+                <div class="song-info">
+                    <h3>鳥の詩</h3>
+                    <p>Lia</p>
                 </div>
-                <div class="time-display">
-                    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                <audio id="audio-player" src="assets/tori.mp3"></audio>
+                <div class="controls">
+                    <button id="play-btn" class="control-btn">▶</button>
+                    <button id="pause-btn" class="control-btn">⏸</button>
+                    <button id="stop-btn" class="control-btn">⏹</button>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
-</section>
-
+    </section>
 
     <footer>
-        <p><span class="emoji emojia9"></span> 2025 B_NoP | 页面仍在施工中 <span class="emoji emoji26d4"></span></p>
+        <p><span class="emoji emojia9"></span> 2025 B_NoP | 图源 <a href="pixiv.net" target="_blank">Pixiv</a>.  反代服务由 <a href="pixiv.cat">Pixiv.cat</a> 提供<span class="emoji emoji26d4"></span></p>
     </footer>
 </body>
+
 <script>
+// === 音乐播放器 ===
 document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('audio-player');
     const playBtn = document.getElementById('play-btn');
@@ -84,54 +83,58 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentTimeEl = document.getElementById('current-time');
     const durationEl = document.getElementById('duration');
 
-    // 播放功能
-    playBtn.addEventListener('click', function() {
-        audio.play();
-    });
-
-    // 暂停功能
-    pauseBtn.addEventListener('click', function() {
-        audio.pause();
-    });
-
-    // 停止功能
+    playBtn.addEventListener('click', function() { audio.play(); });
+    pauseBtn.addEventListener('click', function() { audio.pause(); });
     stopBtn.addEventListener('click', function() {
         audio.pause();
         audio.currentTime = 0;
         progressBar.style.width = '0%';
         updateTimeDisplay();
     });
-
-    // 进度条点击跳转
     progressContainer.addEventListener('click', function(e) {
         const rect = progressContainer.getBoundingClientRect();
         const percent = (e.clientX - rect.left) / rect.width;
         audio.currentTime = percent * audio.duration;
     });
-
-    // 更新进度条
     audio.addEventListener('timeupdate', function() {
         const percent = (audio.currentTime / audio.duration) * 100;
         progressBar.style.width = percent + '%';
         updateTimeDisplay();
     });
+    audio.addEventListener('loadedmetadata', function() { updateTimeDisplay(); });
 
-    // 音频加载完成后更新总时长
-    audio.addEventListener('loadedmetadata', function() {
-        updateTimeDisplay();
-    });
-
-    // 更新时间显示
     function updateTimeDisplay() {
         const currentMinutes = Math.floor(audio.currentTime / 60);
         const currentSeconds = Math.floor(audio.currentTime % 60);
         const durationMinutes = Math.floor(audio.duration / 60);
         const durationSeconds = Math.floor(audio.duration % 60);
-
         currentTimeEl.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
         durationEl.textContent = `${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
     }
 });
-</script>
 
+// === Pixiv 随机图片功能 ===
+const PROXY_BASE = "https://pix.bnopzjn.dpdns.org";
+const PIXIV_PATHS = [
+    "/img-original/img/2018/04/24/01/51/35/68377968_p0.png",
+    "/img-master/img/2024/02/03/03/07/55/115711539_p0_master1200.jpg",
+    "/img-master/img/2024/02/03/03/07/55/115711539_p1_master1200.jpg",
+    "/img-original/img/2025/09/30/20/46/19/135720535_p0.png",
+    "/img-master/img/2025/10/04/09/13/25/135851809_p0_master1200.jpg",
+    "/img-original/img/2024/12/29/17/39/28/125662567_p0.jpg",
+    "/img-original/img/2025/03/16/17/11/45/128277049_p0.png",
+    "/img-original/img/2025/09/18/19/08/27/135248139_p0.png",
+    "img-original/img/2025/08/30/17/16/01/134502568_p0.jpg",
+];
+
+// 修改为在新标签页打开随机图片
+document.getElementById("pixiv-link").addEventListener("click", function(e) {
+    e.preventDefault(); // 阻止默认链接行为
+    const randomIndex = Math.floor(Math.random() * PIXIV_PATHS.length);
+    const imgUrl = PROXY_BASE + PIXIV_PATHS[randomIndex];
+    
+    // 在新标签页中打开图片
+    window.open(imgUrl, '_blank');
+});
+</script>
 </html>
